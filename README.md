@@ -20,6 +20,15 @@ https://blog-daily-production.up.railway.app/
 - passport
 # Local Setup
 Clone the git repository and install the nodejs dependencies
-...
-git clone
-...
+```
+git clone https://github.com/Vinayak-Sutar/Blog-Daily
+cd Blog-Daily
+npm install
+```
+Create new mongoose database and initialize it.
+
+You will also have to create a `.env` file inside the `crimson-dawn` directory with the following properties:
+```
+ATLASSPASS='mongodb atlas cluster password' or you can host database locally
+SECRET='any random string'
+```
