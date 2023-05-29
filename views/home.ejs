@@ -1,0 +1,31 @@
+<%- include('partials/header.ejs',{login:login}) %>
+
+
+    <h1>Home</h1>
+    <p>
+        <%= Hcontent %>
+    </p>
+
+    <% for(let i=posts.length-1;i>=0;i--){ %>
+
+        <h2>
+            <%= posts[i].title%>
+        </h2>
+
+        <p>
+            <%=  posts[i].body.substring(0,100)+"..."  %>
+            <a href="/posts/<%=posts[i].title%>">read more</a>
+          
+        </p>
+        <% } %>
+
+        <!-- <% posts.forEach(post => { %>
+            <h2>
+                <%= post.title%>
+            </h2>
+            <p>
+                <%=  post.body.substring(0,100)+"..."  %>
+                <a href="/posts/<%=post.title%>">read more</a>
+            </p>
+       <% }); %> -->
+            <%- include('partials/footer.ejs') %>

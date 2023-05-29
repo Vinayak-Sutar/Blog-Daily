@@ -1,0 +1,47 @@
+<%- include('partials/header.ejs',{login:login}) %>
+
+<h1>
+    <%= title%>
+</h1>
+
+<p>
+    <%= content %>
+</p>
+<br>
+<% if(reviews.length){%>
+<h4>Comments</h4>
+<%}%>
+<% for(let i= reviews.length-1 ;i>=0; i--){ %>
+    <p>
+        
+        <span style="color: rgb(98, 89, 89);">@<%=reviews[i].author.substring(0, reviews[i].author.indexOf("@"))%> :</span> <%= reviews[i].review%>
+    
+    </p>
+
+    <% } %>
+
+
+
+<%if(user){%>
+    <br>
+    <h4>Add a comment</h4>
+
+<form action="/review" method="POST">
+    <div> @<%=user%> </div>
+    <div class="comment-area"> <textarea name="review"  class="form-control" placeholder="what is your view?" rows="4"></textarea> </div>
+    <br>
+    <div class="pull-right"> <button type="submit" name="userInfo" value="<%=title%>" class="btn btn-success send btn-sm">Send<i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+
+<br>
+
+</form>
+
+
+
+<%}else{%>
+    <br>
+    <a href="/login" name="redirectedFromReviewPage" value="<%=title%>">Login to comment</a>
+<%}%>
+<%- include('partials/footer.ejs') %>
+<!-- _.truncate(posts[i].content,{ 'length': 22,
+    'omission': '***'}  -->
