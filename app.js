@@ -203,7 +203,7 @@ async function main() {
             res.render("post",{title:req.params.pTitle,content:posts[i].body,login:logintext,user:uname,reviews:reviews,author:author});
           }
           else{
-            res.render("post",{title:req.params.pTitle,content:posts[i].body,login:"LOG IN",user:0,reviews:reviews,autho:author});
+            res.render("post",{title:req.params.pTitle,content:posts[i].body,login:"LOG IN",user:0,reviews:reviews,author:author});
 
           } 
           
