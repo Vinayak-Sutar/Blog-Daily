@@ -6,7 +6,12 @@
 
 <p>
     <%= content %>
+    
+    <p style="">- <%=author.substring(0, author.indexOf("@"))%></p>
+
 </p>
+   
+
 <br>
 <% if(reviews.length){%>
 <h4>Comments</h4>

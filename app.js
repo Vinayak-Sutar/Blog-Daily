@@ -191,22 +191,25 @@ async function main() {
 
     for (let i = 0; i < posts.length; i++) {
       if (requestedTitle ===_.lowerCase(posts[i].title)) {
+        const author = posts[i].parent().username;
+        // console.log(author);
+
         const reviews = posts[i].reviews;
         console.log("Match Found!")
 
           if (req.isAuthenticated()) {
             logintext = req.user.username.substring(0, req.user.username.indexOf("@"));
             uname=req.user.username.substring(0, req.user.username.indexOf("@"));
-            res.render("post",{title:req.params.pTitle,content:posts[i].body,login:logintext,user:uname,reviews:reviews});
+            res.render("post",{title:req.params.pTitle,content:posts[i].body,login:logintext,user:uname,reviews:reviews,author:author});
           }
           else{
-            res.render("post",{title:req.params.pTitle,content:posts[i].body,login:"LOG IN",user:0,reviews:reviews});
+            res.render("post",{title:req.params.pTitle,content:posts[i].body,login:"LOG IN",user:0,reviews:reviews,author,author});
 
           } 
           
         
       } else {
-        console.log("match not found :(");
+        // console.log("match not found :(");
         count++;
       }
 
